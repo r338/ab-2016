@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Hoşgeldiniz ve İlk Gün
-date: 2016-01-30 14:00:00 +02:00
+date: 2016-01-30 10:00:00 +02:00
 ---
 
 Herkese merhaba. Ben Berk. Öncelikle onca kurs arasından R kursunu tercih ettiğiniz için çok teşekkür ederiz :) Buradaki neredeyse herkes ilk tercihinden bu kursu seçmiş bulunuyor. 
