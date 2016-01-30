@@ -7,13 +7,29 @@ title: Eğitmenler
 
 2013’ten beri Boğaziçi Üniversitesi Endüstri Mühendisliği Bölümü’nde yardımcı doçent  olarak çalışmaktadır. Boğaziçi Üniversitesi’ne katılmadan önce Arizona State Üniversitesi  (ASU) Security and Defense Systems Initiative bünyesinde bir yıl süreyle doktora sonrası  araştırma görevlisi olarak çalıştı. 2012 yılında yine aynı üniversiteden doktora derecesini  alan Dr. Baydoğan’ın lisans ve yüksek lisans dereceleri Orta Doğu Teknik Üniversitesi  Endüstri Mühendisliği Bölümü’ndendir (sırasıyla 2006 ve 2008 yıllarında). Araştırmalarını istatistiksel öğrenim alanında yapmakta olup, çalışmaları çok değişkenli ve büyük veri setlerinde veri madenciliği yöntemleri ve uygulamaları (özellikle zaman serisi, görüntü verisi gibi mekan-zamansal verilerde) üzerine yoğunlaşmıştır. İstatiksel öğrenim gibi konularda ders vermekte, araştırma yapmakta, bu alanda yapılan çalışmalarda önemli bir araç olan R dilinin Türkiye’de yaygınlığını artırmak üzere eğitimler vermektedir. Invent Analytics şirketinde perakende sektöründeki veri madenciliği problemleri ile ilgili akademik danışman olarak çalışmaktadır. Çalışmaları ve kendisi hakkında daha detaylı bilgiye [http://mustafabaydogan.com](http://mustafabaydogan.com) adresinden ulaşılabilir.
 
-<p><a href="https://www.linkedin.com/in/mustafa-baydogan-36127a2" target="_blank"><i class="fa fa-linkedin-square fa-4x"></i></a></p>
+<p>
+<a href="https://www.linkedin.com/in/mustafa-baydogan-36127a2" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+<!-- 
+<a href="" target="_blank"><i class="fa fa-facebook fa-2x"></i></a>
+-->
+<a href="" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+<a href="http://www.mustafabaydogan.com" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+<a href="mailto:baydoganmustafa@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x"></i></a>
+</p>
+
 
 ##Berk Orbay (Boğaziçi Üniversitesi)
 
 ODTÜ Endüstri Mühendisliği bölümünden 2008’de lisans, 2011’de yüksek lisans  derecelerini aldı. 2011 yılından itibaren Boğaziçi Üniversitesi Endüstri Mühendisliği  bölümünde finans alanında opsiyon fiyatlama modelleri üzerine doktora yapıyor.  TBMM’de milletvekili danışmanı olarak ve bir eğitim ve danışmanlık şirketi olan [ParlakBirGelecek](http://parlakbirgelecek.com)’te ürün geliştirme koordinatörü olarak çalıştı. R programlama dili ile daha çok eğitim ve finans alanlarında olmak üzere analiz ve veri görselleştirme üzerinde çalışıyor.
 
-<p><a href="https://tr.linkedin.com/in/berkorbay" target="_blank"><i class="fa fa-linkedin-square fa-4x"></i></a></p>
+<p><a href="https://tr.linkedin.com/in/berkorbay" target="_blank"><i class="fa fa-linkedin-square fa-2x"></i></a>
+<!-- 
+<a href="" target="_blank"><i class="fa fa-facebook fa-2x"></i></a> 
+-->
+<a href="" target="_blank"><i class="fa fa-twitter fa-2x"></i></a>
+<a href="" target="_blank"><i class="fa fa-globe fa-2x"></i></a>
+<a href="mailto:berkorbay@gmail.com" target="_blank"><i class="fa fa-envelope fa-2x"></i></a>
+</p>
 
 <!---
 <p class="message">
