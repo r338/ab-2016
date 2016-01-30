@@ -12,5 +12,6 @@ Ayrıca aşağıdaki dökümanlar da size R ile veri analizi esnasında yardımc
 * [dplyr Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf): dplyr komutlarının çoğunun özet bir şekilde 2 sayfaya indirgenmiş hali.
 * [ggplot2 Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/03/ggplot2-cheatsheet.pdf): ggplot2 komutlarının çoğunun özet bir şekilde 2 sayfaya indirgenmiş hali.
 * [Markdown Basics](http://rmarkdown.rstudio.com/authoring_basics.html): Markdown hakkında temel bilgiler.
+* [R Markdown Cheat Sheet](https://www.rstudio.com/wp-content/uploads/2015/02/rmarkdown-cheatsheet.pdf): R Markdown için hızlı kullanım ve Markdown örneği.
 
 Bu sayfa güncellenmeye devam edecektir.
