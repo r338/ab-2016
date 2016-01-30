@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Alıştırma Seti
-date: 2016-01-30 14:00:00 +02:00
+date: 2016-01-30 12:00:00 +02:00
 ---
 
 Teorik dağılımlar ile örneklemler üzerinden istatistiklerin ilişkileri
