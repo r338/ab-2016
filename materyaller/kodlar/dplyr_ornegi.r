@@ -47,6 +47,7 @@ library(readxl)
 
 #####
 ### Yardimci fonksiyonlari calistir
+source()
 #####
 
 #Veri setimizi olusturalim
@@ -132,6 +133,10 @@ sinif %>%
 sinif %>% 
 	filter(Matematik_1 >= 50 | Matematik_2 >= 50)
 
+#İsmi Buğra veya Nurgül olanları gösterelim
+sinif %>% 
+	filter(isim %in% c("Buğra","Nurgül"))
+
 #Kodlamadan 1. sinavda 50 ve uzerinde alanlarin isim, soyad, Kodlama 1 notunun hepsini gosterelim
 sinif %>%
 	filter(Kodlama_1>=50) %>%
@@ -141,6 +146,14 @@ sinif %>%
 #Soyadinda 'oglu' olan herkesi gosterelim
 sinif %>% 
 	filter(grepl("oğlu",soyad))
+
+#ilk 5 satiri alalim
+sinif %>%
+	slice(1:5)
+
+#sadece 5. satiri alalim
+sinif %>%
+	slice(5)
 
 ####
 #arrange komutu ile ilgili alistirmalar
@@ -162,8 +175,101 @@ sinif %>%
 	arrange(sube,desc(Tarih_1)) %>%
 	print(n=Inf)
 
+####
+#mutate komutu ile ilgili alıştırmalar
+#mutate sütunların üzerinde işlem yaptırtır
+####
 
+#Tarih 1 notundan herkesten 5 puan duselim
+sinif %>%
+	mutate(Tarih_1=Tarih_1-5)
 
+#Tarih 1 notundan herkesten 5 puan duselim ama yeni sutunda
+sinif %>%
+	mutate(Tarih_1_yeni=Tarih_1-5) %>% 
+	select(isim,soyad,Tarih_1,Tarih_1_yeni)
+
+#Matematik 1'den 50nin altinda olan herkesin notunu 15 arttiralim
+sinif %>%
+	select(isim,soyad,sube,Matematik_1) %>%
+	mutate(Matematik_1_yeni=ifelse(Matematik_1<=50,Matematik_1 + 15,Matematik_1))
+
+#Peki kimsenin hakkini yedik mi? Notu 65 altinda olanlara bakalim 
+sinif %>%
+	select(isim,soyad,sube,Matematik_1) %>%
+	mutate(Matematik_1_yeni=ifelse(Matematik_1<=50,Matematik_1 + 15,Matematik_1)) %>%
+	filter(Matematik_1_yeni<=65) %>%
+	arrange(desc(Matematik_1))
+
+#Notu 50nin altinda olan herkes not arttirma ile en fazla 50 olsun adalet gelsin
+sinif %>%
+	select(isim,soyad,sube,Matematik_1) %>%
+	mutate(Matematik_1_yeni=ifelse(Matematik_1<=50,pmin(Matematik_1 + 15,50),Matematik_1)) %>%
+	filter(Matematik_1_yeni<=65) %>%
+	arrange(desc(Matematik_1)) %>%
+	print(n=Inf)
+
+#Kodlama'da iki sinavin ortalamasini alalim
+sinif %>%
+	mutate(Kodlama_ort=(Kodlama_1+Kodlama_2)/2)
+
+#Kodlama'da iki sinavin agirlikli ortalamasini alalim
+sinif %>%
+	mutate(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7))
+
+#Kodlama dersinden 40 ustu alanlari gecirelim
+sinif %>%
+	mutate(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7),
+		Kodlama_sonuc=ifelse(Kodlama_ort>=40,"Geçti","Kaldı"))
+
+#Kodlama dersinden 40 ustu alanlari gecirelim
+sinif %>%
+	mutate(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7)) %>%
+	mutate(Kodlama_sonuc=ifelse(Kodlama_ort>=40,"Geçti","Kaldı"))
+
+#Kodlama dersinin not ortalamalarini tek basina alalim 
+#Transmute komutu
+sinif %>%
+	transmute(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7)) %>% unlist %>% hist()
+
+#Transmute komutu ve histogram cizdirme
+sinif %>%
+	transmute(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7)) %>% unlist %>% hist()
+
+###
+#summarise ve group_by komutlari
+#summarise komutu ile pivot tablolari yapabiliriz
+###
+
+#Tarih 1 ve Tarih 2 sinavlarinin ortalamasini alalim
+sinif %>%
+	summarise(Tarih_1_ort=round(mean(Tarih_1),2),Tarih_2_ort=round(mean(Tarih_2),2))
+
+#Tarih 1 ve Tarih 2 sinavlarinin subelere gore ortalamasini alalim
+sinif %>% 
+	group_by(sube) %>%
+	summarise(Tarih_1_ort=round(mean(Tarih_1),2),Tarih_2_ort=round(mean(Tarih_2),2))
+
+#Tarih 1 ve Tarih 2 sinavlarinin subelere ve cinsiyete gore ortalamasini alalim
+sinif %>% 
+	group_by(sube,cinsiyet) %>%
+	summarise(Tarih_1_ort=round(mean(Tarih_1),2),Tarih_2_ort=round(mean(Tarih_2),2))
+
+#Sinif mevcutlarina bakalim
+sinif %>%
+	group_by(sube) %>%
+	summarise(sinif_mevcudu=n())
+
+#Siniflardaki kiz erkek dagilimlarina bakalim
+sinif %>%
+	group_by(sube,cinsiyet) %>%
+	summarise(sinif_mevcudu=n())
+
+#Matematik sinavlarinin sube ve cinsiyet bazinda en dusuk ve en yuksek skorlarina bakalim
+
+sinif %>% 
+	group_by(sube,cinsiyet) %>%
+	summarise(Matematik_1_min=min(Matematik_1),Matematik_1_max=max(Matematik_1),Matematik_2_min=min(Matematik_2),Matematik_2_max=max(Matematik_2))
 
 
 
