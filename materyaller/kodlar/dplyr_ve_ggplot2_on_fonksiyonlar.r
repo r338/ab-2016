@@ -22,7 +22,7 @@ isim_getir<-function(isim_soyad="isim",cinsiyet="Erkek",n){
 sinif_olustur<-function(sinif_sayisi=2,sinif_buyuklugu=30,dersler=c("Matematik","Kodlama","Tarih"),sinav_sayisi=2,min_not=10,max_not=100,rastgelelik=338){
 	set.seed(338) #Rastgelelik tohumunu ek
 
-	notlar<-matrix(sample(min_not:max_not,sinif_buyuklugu*sinif_sayisi*length(dersler),replace=TRUE),ncol=length(dersler)*sinav_sayisi)
+	notlar<-matrix(sample(min_not:max_not,sinif_buyuklugu*sinif_sayisi*length(dersler)*sinav_sayisi,replace=TRUE),ncol=length(dersler)*sinav_sayisi)
 
 	if(sinav_sayisi==1){
 		colnames(notlar)<-dersler

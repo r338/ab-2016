@@ -107,7 +107,7 @@ sinif %>%
 
 #dogrusu
 sinif %>%
-	rename(`soy isim`=soyad)
+	dplyr::rename(`soy isim`=soyad)
 
 ####
 #filter komutu ile ilgili alistirmalar
@@ -220,17 +220,19 @@ sinif %>%
 #Kodlama dersinden 40 ustu alanlari gecirelim
 sinif %>%
 	mutate(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7),
-		Kodlama_sonuc=ifelse(Kodlama_ort>=40,"Geçti","Kaldı"))
+		Kodlama_sonuc=ifelse(Kodlama_ort>=40,"Geçti","Kaldı"))  %>%
+	select(-cinsiyet,-sube)
 
 #Kodlama dersinden 40 ustu alanlari gecirelim
 sinif %>%
 	mutate(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7)) %>%
-	mutate(Kodlama_sonuc=ifelse(Kodlama_ort>=40,"Geçti","Kaldı"))
+	mutate(Kodlama_sonuc=ifelse(Kodlama_ort>=40,"Geçti","Kaldı")) %>%
+	select(-cinsiyet,-sube)
 
 #Kodlama dersinin not ortalamalarini tek basina alalim 
 #Transmute komutu
 sinif %>%
-	transmute(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7)) %>% unlist %>% hist()
+	transmute(Kodlama_ort=(Kodlama_1*0.3+Kodlama_2*0.7))
 
 #Transmute komutu ve histogram cizdirme
 sinif %>%
@@ -243,7 +245,7 @@ sinif %>%
 
 #Tarih 1 ve Tarih 2 sinavlarinin ortalamasini alalim
 sinif %>%
-	summarise(Tarih_1_ort=round(mean(Tarih_1),2),Tarih_2_ort=round(mean(Tarih_2),2))
+	summarise(Tarih_1_ort=round(mean(Tarih_1),5),Tarih_2_ort=round(mean(Tarih_2),5))
 
 #Tarih 1 ve Tarih 2 sinavlarinin subelere gore ortalamasini alalim
 sinif %>% 
@@ -266,10 +268,20 @@ sinif %>%
 	summarise(sinif_mevcudu=n())
 
 #Matematik sinavlarinin sube ve cinsiyet bazinda en dusuk ve en yuksek skorlarina bakalim
-
 sinif %>% 
 	group_by(sube,cinsiyet) %>%
 	summarise(Matematik_1_min=min(Matematik_1),Matematik_1_max=max(Matematik_1),Matematik_2_min=min(Matematik_2),Matematik_2_max=max(Matematik_2))
+
+
+#sinifta Kodlama_1den 30'un uzerinde alan ve Kodlama_2'de 40'in uzerinde alan kiz ogrencilerin not ortalamasi
+
+sinif %>% 
+	filter(cinsiyet=="Kız",Kodlama_1 > 30 & Kodlama_2 > 40 ) %>% 
+	summarise(kodlama_1_ort=mean(Kodlama_1),kodlama_2_ort=mean(Kodlama_2))
+
+
+#Matematikten 1. sinavda 30 ile 50 veya 2. sinavda 50 ile 80 arasi alanlarin ortalamasi 65in uzerinde olanlari gecti olmayanlari kaldi diye belirtelim.
+
 
 
 
