@@ -1,7 +1,7 @@
 ---
 layout: post
 title: dplyr Örnekleri
-date: 2016-01-31 09:15:00 +02:00
+date: 2016-01-31 07:15:00 +02:00
 ---
 
 Aşağıdaki iki sayfada ```dplyr``` ile ilgili işleyeceğimiz örneklerin önemli bir kısmı bulunuyor. Dersi bu kodlarla da rahatça takip edebilirsiniz.
