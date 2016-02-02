@@ -283,6 +283,37 @@ sinif %>%
 #Matematikten 1. sinavda 30 ile 50 veya 2. sinavda 50 ile 80 arasi alanlarin ortalamasi 65in uzerinde olanlari gecti olmayanlari kaldi diye belirtelim.
 
 
+sinif %>%
+filter((Matematik_1>=30 & Matematik_1<=50) | (Matematik_2>=50 & Matematik_2<=80)) %>%
+mutate(Mat_ort=(Matematik_1+Matematik_2)/2) %>%
+mutate(Mat_sonuc=ifelse(Mat_ort>=65,"Gecti","Kaldi")) %>%
+select(-Tarih_1,-Tarih_2)
 
 
+ortalamasi<-function(deger1,deger2){
+
+	return((deger1 + deger2)/2)
+}
+
+
+sinif %>% 
+	mutate(Mat_ort=ortalamasi(Matematik_1,Matematik_2),Mat_ort_elle=(Matematik_1+Matematik_2)/2) %>% 
+	select(isim,soyad,starts_with("Mat"))
+
+sinif %>%
+	group_by(sube,cinsiyet) %>% 
+	summarise_each(funs(mean),-isim,-soyad)
+
+sinif %>%
+	mutate(soyad_kisa=substr(soyad,1,3)) %>%
+	mutate(soyad_2=paste0(soyad,"_1")) %>%
+	mutate(soyad_3=nchar(soyad)) %>%
+	select(soyad,soyad_kisa,soyad_2, soyad_3)
+
+
+
+
+
+install.packages("ggplot2")
+library(ggplot2)
 
