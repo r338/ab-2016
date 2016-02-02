@@ -3,7 +3,7 @@
 # Use of `relative_permalinks` ensures post links from the index work properly.
 permalink:           pretty
 future: 			 false
-markdown: 			 redcarpet
+markdown: 			 kramdown
 #relative_permalinks: true
 
 # Setup
